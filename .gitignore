@@ -1,2 +1,3 @@
 kindle2pdf.cpython-311.pyc
 *.pdf
+__pycache__/
