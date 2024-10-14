@@ -10,12 +10,12 @@ from PIL import Image
 from fpdf import FPDF
 
 # スクリーンショットを取得したい範囲の座標
-left, top, width, height = (50, 120, 1080, 1355)
+left, top, width, height = (, , , )
 # スクショ間隔(秒)
 span = 1
 # 作成するフォルダ名を指定します。
 # PDFファイル名にもなります。
-h_foldername = "40字要約で仕事はどんどんうまくいく"
+h_foldername = "YOUR_BOOKNAME"
 # 出力ファイル頭文字
 h_filename = "Page"
 
@@ -31,19 +31,14 @@ prev_img = None
 same_cnt = 0
 p = 0
 while True:
-    # アクティブなウィンドウのハンドルを取得する
     handle = win32gui.GetForegroundWindow()
-    # デバイスコンテキストを作成する
     hwindc = win32gui.GetWindowDC(handle)
     srcdc = win32ui.CreateDCFromHandle(hwindc)
     memdc = srcdc.CreateCompatibleDC()
-    # ビットマップオブジェクトを作成する
     bmp = win32ui.CreateBitmap()
     bmp.CreateCompatibleBitmap(srcdc, width, height)
     memdc.SelectObject(bmp)
-    # スクリーンショットを取得する
     memdc.BitBlt((0, 0), (width, height), srcdc, (left, top), win32con.SRCCOPY)
-    # ビットマップを画像に変換する
     bmpinfo = bmp.GetInfo()
     bmpstr = bmp.GetBitmapBits(True)
     s = Image.frombuffer(
@@ -55,16 +50,15 @@ while True:
         0,
         1,
     )
-    # デバイスコンテキストを解放する
+
     srcdc.DeleteDC()
     memdc.DeleteDC()
     win32gui.ReleaseDC(handle, hwindc)
     win32gui.DeleteObject(bmp.GetHandle())
 
+    # スクリーンショットを重複して刷遺影していないかを確認する
     p = p + 1
-    # 前回の画像と同じか判定
     if prev_img is None or not s.tobytes() == prev_img.tobytes():
-        # 前回の画像と異なる場合はスクリーンショットを保存
         out_filename = h_filename + "_" + str(p).zfill(4) + '.png'
         s.save(folder_name + "/" + out_filename)
         prev_img = s
@@ -78,7 +72,7 @@ while True:
         # 前回の画像と同じ場合はカウンタを増やす
         same_cnt += 1
 
-    # 3回同じ画像が出現した場合は終了
+    # 3回スクリーンショットを撮影した場合は終了する（＝本の最後の判定）
     if same_cnt >= 3:
         break
 
@@ -94,16 +88,16 @@ for filename in sorted(os.listdir(folder_name)):
         cover = Image.open(img_path)
         width, height = cover.size
         
-        # Convert pixel in mm with 1px=0.264583 mm
+        # ピクセル単位をmm単位に変換
         width, height = float(width * 0.264583), float(height * 0.264583)
         
-        # given we are working with A4 format size 
+        # PDFをA4サイズで出力するように変換する
         pdf_size = {'P': (210, 297), 'L': (297, 210)}
         
-        # get page orientation from image size 
+        # スクリーンショットの向きを縦向きに修正する 
         orientation = 'P' if width < height else 'L'
         
-        #  make sure image size is not greater than the pdf format size 
+        #  スクリーンショットのサイズとPDFのサイズが合致しているか念のため確認する
         width = width if width < pdf_size[orientation][0] else pdf_size[orientation][0]
         height = height if height < pdf_size[orientation][1] else pdf_size[orientation][1]
         
