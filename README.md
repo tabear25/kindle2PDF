@@ -20,10 +20,10 @@ Make PDF version of kindle books
 - 注意：外部ディスプレイを接続した状態だと座標情報がバグるので、外部ディスプレイを接続していない状態で使用する
 - [Kindleデスクトップアプリ](https://www.amazon.co.jp/gp/browse.html?node=26197586051&ref=kcp_fd_hz)をダウンロードして、PDF化したい任意の本を開く
 ### PDF化する範囲を決定する
-- getPoints.pyをrunさせて、画面の4隅の座標をメモしておく
+- getPoints.pyをrunさせて、Kindleデスクトップアプリの4隅の座標をメモしておく
 - 計測が完了したらターミナルにカーソルを合わせて Ctrl+Cで終了する
 ### PDF化する
-- Kindle2PDF.pyを用いてPDF化する
+- `Kindle2PDF.py` を用いてPDF化する
 - `left, top, width, height = (, , , )` に `getPoints.py` で控えた座標を記入する。
 
 | 項目  | 説明 |
@@ -36,4 +36,4 @@ Make PDF version of kindle books
 - `h_foldername = "YOUR_BOOKNAME"` に任意のファイル名を記入する。作成されるPDFファイルが格納されるフォルダとなる。
 - 上記が確認出来たらrunを行う。
 - runを行ってから7秒以内にKindleデスクトップアプリをアクティブなウィンドウにするためにクリックする
-- 先ほど指定した座標内のアクティブなウィンドウ内において作業するため、作業中はPCを用いて他の操作を行わないこと。
+    - 先ほど指定した座標内のアクティブなウィンドウ内において作業するため、作業中はPCを用いて他の操作を行わないこと。
