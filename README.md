@@ -16,7 +16,9 @@ Make PDF version of kindle books
 - [fpdf](https://pypi.org/project/fpdf/)
 
 # 使い方
+### 準備
 - 注意：外部ディスプレイを接続した状態だと座標情報がバグるので、外部ディスプレイを接続していない状態で使用する
 - [Kindleデスクトップアプリ](https://www.amazon.co.jp/gp/browse.html?node=26197586051&ref=kcp_fd_hz)をダウンロードして、PDF化したい任意の本を開く
+### PDF化する範囲を決定する
 - getPoints.pyをrunさせて、画面の4隅の座標を控える
 - 計測が完了したらターミナルにカーソルを合わせて Ctrl+Cで終了する
