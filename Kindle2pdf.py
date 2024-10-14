@@ -15,7 +15,7 @@ left, top, width, height = (, , , )
 span = 1
 # 作成するフォルダ名を指定します。
 # PDFファイル名にもなります。
-h_foldername = "YOUR_BOOKNAME"
+h_foldername = "YOUR_DESIREDNAME"
 # 出力ファイル頭文字
 h_filename = "Page"
 
