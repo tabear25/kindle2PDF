@@ -24,12 +24,16 @@ Make PDF version of kindle books
 - 計測が完了したらターミナルにカーソルを合わせて Ctrl+Cで終了する
 ### PDF化する
 - Kindle2PDF.pyを用いてPDF化する
-- 'left, top, width, height = (, , , )'にgetPoints.pyで控えた座標を記入する
-｜left｜4隅において左辺に該当する座標のx軸｜
-｜top｜4隅において左上に該当する座標のy軸｜
-｜width｜x軸を右辺 - 左辺した値｜
-｜height｜y軸を上端 - 下端した値｜
-- 'h_foldername = "YOUR_BOOKNAME"'に任意のファイル名を記入する。作成されるPDFファイルが格納されるフォルダとなる
-- 上記が確認出来たらrunを行う
+- `left, top, width, height = (, , , )` に `getPoints.py` で控えた座標を記入する。
+
+| 項目  | 説明 |
+|-------|------|
+| left  | 4隅において左辺に該当する座標のx軸 |
+| top   | 4隅において左上に該当する座標のy軸 |
+| width | x軸を右辺 - 左辺した値 |
+| height| y軸を上端 - 下端した値 |
+
+- `h_foldername = "YOUR_BOOKNAME"` に任意のファイル名を記入する。作成されるPDFファイルが格納されるフォルダとなる。
+- 上記が確認出来たらrunを行う。
 - runを行ってから7秒以内にKindleデスクトップアプリをアクティブなウィンドウにするためにクリックする
 - 先ほど指定した座標内のアクティブなウィンドウ内において作業するため、作業中はPCを用いて他の操作を行わないこと。
