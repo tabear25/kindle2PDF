@@ -1,7 +1,7 @@
 import pyautogui
 import time
 
-print("Move the mouse to the desired position and press Ctrl+C to stop.")
+print("座標を計測したい場所へマウスを動かしてください。ターミナルにカーソルを合わせてCtrl+Cで終了します。")
 
 try:
     while True:
@@ -10,5 +10,6 @@ try:
         print(position_str, end="")
         print("\b" * len(position_str), end="", flush=True)
         time.sleep(0.1)
+
 except KeyboardInterrupt:
     print("\nDone.")
