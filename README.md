@@ -1,3 +1,6 @@
+**WORK IN PROGRESS**
+This repo is not guaranteed to work as expected
+
 # main
 Convert Kindle books into PDF format
 

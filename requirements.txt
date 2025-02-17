@@ -1,0 +1,8 @@
+###### Requirements without Version Specifiers ######
+opencv-python
+numpy
+Pillow
+fpdf
+pyautogui
+pywin32
+pygetwindow
