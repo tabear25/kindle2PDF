@@ -54,7 +54,7 @@ while True:
     else:
         same_cnt += 1
 
-    if same_cnt >= 3:
+    if same_cnt >= 3: # 見開き空白で処理が止まることを防ぐため3ページ同じページが連続したら処理を停止
         break
 
     print(f"Processing page {p}")
